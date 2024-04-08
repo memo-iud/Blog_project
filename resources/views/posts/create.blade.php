@@ -7,7 +7,7 @@
                     <div class="card-header">Crear Nuevo Post</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('posts.store') }}">
+                        <form method="POST" action="{{route('posts.store')}}">
                             @csrf
                             <div class="form-group mb-3">
                                 <label for="title">Titulo:</label>
@@ -20,7 +20,8 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label for="category">Categoria</label>
-                                <select name="category" id="category" class="form-control">
+                                <select name="category_id" id="category" class="form-control" >
+                                    <option value="">Seleccione un categotia</option>
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id}}">{{ $category->category_name}}</option>
                                     @endforeach

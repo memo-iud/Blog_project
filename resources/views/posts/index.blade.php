@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<div class=>"container">
+<div class="container">
     <h5>Lista de publicaciones</h5>
     <a href="{{ route('posts.create') }}" class="btn  btn-primary">Crear publicación</a>
     <table class="table">

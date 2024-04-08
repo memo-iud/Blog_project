@@ -32,8 +32,8 @@ class CategoryController extends Controller
      */
     public function store(CreateCategoryRequest $request)
     {
-        Category::create($request-> validated());
-        return redirect()-> route('categories.index')->with('success', 'Category created successfully');
+        Category::create($request->validated());
+        return redirect()->route('categories.index')->with('success', 'Category created successfully');
     }
 
     /**
@@ -58,6 +58,7 @@ class CategoryController extends Controller
     *@param \App\Model\Category $category
     *@param\Illuminate\Http\Response
      */
+
 
     public function update(CreateCategoryRequest $request, Category $category)
     {
