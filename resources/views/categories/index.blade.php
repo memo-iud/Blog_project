@@ -2,37 +2,41 @@
 
 @section('content')
     <div class="container">
-        <h5>Lista de categorias</h5>
-        <a href="{{ route('categories.create') }}" class="btn  btn-primary">Crear publicación</a>
-        <table class="table">
+        <div class="card">
+            <div class="card-header">LISTADO DE CATEGORÍAS</div>
+            <div class="card-body">
+            <h5>CATEGORIAS</h5>
+            <a href="{{ route('categories.create') }}" class="btn  btn-primary">Crear publicación</a>
+            <table class="table">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>Id</th>
                     <th>Titulo</th>
                     <th>Contenido</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($categories as $categorie)
+                @foreach($categories as $category)
                     <tr>
-                        <td>{{ $categorie->id }}</td>
-                        <td>{{ $categorie->category_name }}</td>
-                        <td>{{ $categorie->active }}</td>
+                        <td>{{ $category->id }}</td>
+                        <td>{{ $category->category_name }}</td>
+                        <td>{{ $category->active }}</td>
                         <td>
-                            <a href="{{ route('posts.show', $categorie->id) }}" class="btn btn-primary">Ver</a>
-                            <a href="{{ route('posts.edit', $categorie->id) }}" class="btn btn-primary">Editar</a>
-                            <form action="{{ route('posts.destroy', $categorie->id) }}"
+                            <a href="{{ route('categories.show', $category->id) }}" class="btn btn-warning">Ver</a>
+                            <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-primary">Editar</a>
+                            <form action="{{ route('categories.destroy', $category->id) }}" method="POST" style=" display: inline ">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger ">Eliminar</button>
+                        </form>
 
-
-                            method="POST" style="display: inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
-                            </form>
                         </tb>
                     </tr>
                 @endforeach
             </tbody>
         </div>
-    @endsection
+    </div>
+</div>
+</div>
+@endsection

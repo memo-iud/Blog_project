@@ -1,25 +1,26 @@
-@extends('layout.app')
+@extends('layouts.app')
 @section('content')
-
-    <div class="container">
-        <h3>Detalles de categoría</h3>
-
-        <div class ="card">
-             <div class="car-body">
-                 {{ $category->id }}
-                 {{ $category->category_name }}
-                 @if ($category->active)
-                    Activa
-                 @else
-                    Inactiva
-                 @endif
+    <div class ="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">VER CLASE</div>
+            <div class="card-header">ID</div>
+            <div class="card-body">
+            <h1>{{ $category->id }}</h1></div>
+            <div class="card-header">CATEGORÍA</div>
+            <div class="card-body">
+            <h1>{{ $category->category_name }}<h1></div>
+            <div class="card-header">Fecha Creado</div>
+            <div class="card-body">
+                <p>{{ $category->created_at }}<p></div>
+                <a action="{{ route('categories.edit', $category->id) }}"></a>
+                <form action="{{ route('categories.destroy', $category->id) }}" method="CATEGORIES">
+                    @csrf
+                    @method('DELETE')
+                </form>
             </div>
-            <a class="btn btn-primary" hret="{{ route('categories.edit', $category->id) }}">Edit</a>
-            <form action="{{ route('categories.destroy', $category->id) }}" method="post" style=display: inline">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class=btn btn-danger">Eliminar</button>
-            </form>
         </div>
     </div>
+
 @endsection

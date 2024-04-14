@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\CreateCategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -41,6 +42,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
+
         return view ('categories.show', compact('category'));
     }
 
@@ -60,18 +62,28 @@ class CategoryController extends Controller
      */
 
 
-    public function update(CreateCategoryRequest $request, Category $category)
+    public function update(Request $request, Category $category)
     {
-        $category->update($request->validate());
+        $request->validate([
+            'category_name'=> 'required|string|max:120',
+            'active' => 'required|boolean'
+            // Agrega aquí más campos según sea necesario
+        ]);
+
+        $category->category_name = $request->category_name;
+        $category->active = $request->active;
+
+        $category->save();
+
         return redirect()->route('categories.index')->with('success','Category updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(category $category)
+    public function destroy(Category $category)
     {
         $category->delete();
         return redirect()->route('categories.index')->with('success', 'Category deleted successfully');
-    }
+}
 }
