@@ -14,6 +14,7 @@
                         <th>Titulo</th>
                         <th>Contenido</th>
                         <th>Categoría</th>
+                        <th> </th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -22,24 +23,26 @@
                     <tr>
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
-                        <td>{{ $post->content }}</td>
+                        <td> {!! html_entity_decode( $post->content ) !!} </td>
                         <td>{{ $post->category_id }}</td>
                         <td>
-
-                        <a href="{{ route('posts.show', $post->id) }}" class="btn btn-warning">Ver</a>
-                        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">Editar</a>
-                        <form action="{{ route('posts.destroy', $post->id) }}" method="POST" style=" display: inline ">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger ">Eliminar</button>
-                        </form>
-                        </tb>
-                    </tr>
-                    @endforeach
-                </tbody>
+                            <div class="d-flex justify-content-end">
+                            <a href="{{ route('posts.show', $post->id) }}" class="btn btn-warning mb-3">Ver</a>
+                            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary mb-3">Editar</a>
+                            <form action="{{ route('posts.destroy', $post->id) }}"
+                                method="POST" style=" display: inline ">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger ">Eliminar</button>
+                            </form>
+                            <a href="{{ url()->previous() }}" class="btn btn-secondary mb-3">Atras</a></div>
+                            </tb>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
 

@@ -24,13 +24,14 @@
                                 <select name="category_id" id="category" class="form-control">
                                     <option value="">Seleccione una categoria</option>
                                     @foreach($categories as $category)
-                                        <option value="{{ $category->id }}" {{ $post->category_id == $category->id ? 'selected' : '' }}>{{ $category->category_name }}</option>
+                                        <option value="{{ $category->id }}" {{ $post->category_id == $category->id ?
+                                        'selected' : '' }}>{{ $category->category_name }}</option>
                                     @endforeach
                                 </select>
-                            </div>
-                                <button type="submit" class="btn btn-primary mb-3">Editar</button>
-                            </div>
+                                <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-danger mb-3">Guardar</button>
                         </form>
+                        <a href="{{ url()->previous() }}" class="btn btn-secondary mb-3">Atras</a></div>
                     </div>
                 </div>
             </div>

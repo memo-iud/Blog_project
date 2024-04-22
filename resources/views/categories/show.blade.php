@@ -14,11 +14,14 @@
             <div class="card-header">Fecha Creado</div>
             <div class="card-body">
                 <p>{{ $category->created_at }}<p></div>
-                <a action="{{ route('categories.edit', $category->id) }}"></a>
-                <form action="{{ route('categories.destroy', $category->id) }}" method="CATEGORIES">
+                <div class="d-flex justify-content-end">
+                <a action="{{ route('categories.edit', $category->id) }}" class="btn btn-primary mb-3">Editar</a>
+                <form action="{{ route('categories.destroy', $category->id) }}" ></a>
                     @csrf
                     @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
                 </form>
+                <a href="{{ url()->previous() }}" class="btn btn-secondary mb-3">Atras</a></div>
             </div>
         </div>
     </div>

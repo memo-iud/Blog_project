@@ -25,9 +25,12 @@
                                         <option value="{{ $category->id}}">{{ $category->category_name}}</option>
                                     @endforeach
                                 </select>
+                                <div class="d-flex justify-content-end">
                             </div>
-                            <button type="submit" class="btn btn-danger mb-3">Guardar</button>
+                        <button type="submit" class="btn btn-danger mb-3">Guardar</button>
+
                         </form>
+                        <a href="{{ url()->previous() }}" class="btn btn-secondary mb-3">Atras</a></div>
                     </div>
                 </div>
             </div>

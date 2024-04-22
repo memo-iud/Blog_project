@@ -13,6 +13,7 @@
                     <th>Id</th>
                     <th>Titulo</th>
                     <th>Contenido</th>
+                    <th></th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -23,14 +24,18 @@
                         <td>{{ $category->category_name }}</td>
                         <td>{{ $category->active }}</td>
                         <td>
-                            <a href="{{ route('categories.show', $category->id) }}" class="btn btn-warning">Ver</a>
-                            <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-primary">Editar</a>
-                            <form action="{{ route('categories.destroy', $category->id) }}" method="POST" style=" display: inline ">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger ">Eliminar</button>
-                        </form>
-
+                            <div class="d-flex justify-content-end">
+                                <a href="{{ route('categories.show', $category->id) }}"
+                                    class="btn btn-warning mb-3">Ver</a>
+                                <a href="{{ route('categories.edit', $category->id) }}"
+                                    class="btn btn-primary mb-3">Editar</a>
+                                <form action="{{ route('categories.destroy', $category->id) }}"
+                                    method="POST" style=" display: inline ">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger mb-3 ">Eliminar</button>
+                                <a href="{{ url()->previous() }}" class="btn btn-secondary mb-3">Atras</a></div>
+                            </form>
                         </tb>
                     </tr>
                 @endforeach

@@ -18,7 +18,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Este es mi projecto de Framework.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="#" class="btn btn-primary mb-3">Go somewhere</a>
                         </div>
                     </div>
                 </div>

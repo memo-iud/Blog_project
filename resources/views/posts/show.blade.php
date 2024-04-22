@@ -12,12 +12,14 @@
                 <p>{{ $post->content }}</p>
                 <div class="card-header">Fecha Modificado</div>
                 <p>{{ $post->updated_at }}</p>
-                <a href="{{ route('posts.edit', $post->id) }}"></a>
+            <div class="d-flex justify-content-end">
+                <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary mb-3">Editar</a>
                 <form action="{{ route('posts.destroy', $post->id) }}" method="post">
                     @csrf
                     @method('DELETE')
-
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
                 </form>
+                <a href="{{ url()->previous() }}" class="btn btn-secondary mb-3">Atras</a></div>
             </div>
             </div>
         </div>

@@ -12,8 +12,8 @@
                             <div class="form-goup">
                                 @error('category_name')
                                     has-error
-                                @enderror">
-                                <label for="category_name"> Nombre de la categoria</label>
+                                @enderror
+                                <label for="category_name" class="form_label">Nombre Categoría</label>
                                 <input type="text" name="category_name" id="category_name" class="form-control"
                                     value="{{ $category->category_name }}">
                                 @error('category_name')
@@ -28,8 +28,11 @@
                                     <option value="0" {{ $category->active ? 'selected' : '' }}>Inactiva</option>
                                 </select>
                             </div>
+                            <div class="d-flex justify-content-end">
                             <button type="submit" class="btn btn-primary mb-3">Guardar</button>
-                        </form>
+                        
+                        <a href="{{ url()->previous() }}" class="btn btn-secondary mb-3">Atras</a></div>
+                    </form>
                     </div>
                 </div>
             </div>
